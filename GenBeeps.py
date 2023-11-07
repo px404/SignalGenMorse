@@ -8,7 +8,7 @@ import time
 bitrate = 44100 #number of frames per second/frameset.      
 freq = 440
 
-for i in range(0,2):
+for i in range(0,4):
     if i == 0:
         LENGTH = 0.5 #seconds to play sound
         bitrate = max(bitrate, freq)
@@ -35,3 +35,25 @@ for i in range(0,2):
 
         print("Here's the beep")
         playsound('Beep.wav')
+
+    if i == 2:
+        LENGTH = 0.3
+        bitrate = 44100 #number of frames per second/frameset.
+        freq = 1
+
+        sound = Audio(np.sin(2 * np.pi * freq * np.linspace(0, LENGTH, int(LENGTH * bitrate), endpoint=False)), rate=bitrate)
+        dat_sound = sound.data #extract the binary in the sound
+
+        with open("Pause.wav",'wb') as f:
+            f.write(dat_sound)
+
+    if i == 2:
+        LENGTH = 0.5
+        bitrate = 44100 #number of frames per second/frameset.
+        freq = 1 #This is to make t#set it to one, it won't accept 0 as bitrate or freq, this shouldn't be bad unless there's a precise signal detecting device that can detect frequency of 1, or this could be wrong as well idk here
+
+        sound = Audio(np.sin(2 * np.pi * freq * np.linspace(0, LENGTH, int(LENGTH * bitrate), endpoint=False)), rate=bitrate)
+        dat_sound = sound.data #extract the binary in the sound
+
+        with open("Pause_.wav",'wb') as f:
+            f.write(dat_sound)
