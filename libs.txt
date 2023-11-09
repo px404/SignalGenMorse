@@ -1,5 +1,5 @@
 playsound
 numpy
 scipy
-playaudio
 ipython
+pydub
